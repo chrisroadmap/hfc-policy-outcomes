@@ -1,42 +1,33 @@
-# template-jupyter-project
-Template to use for new python-based Jupyter notebook projects
+# HFC Policy Outcomes
+Determining the climate response to outcomes of future HFC emissions for air conditioning.
 
-## First steps
+## Reproduction
 
-This assumes that you are developing with `conda` and `python` 3.7, 3.8 or 3.9. These instructions should work for Windows when using Anaconda Prompt and for MacOS in Terminal (and by extension, likely will work on Linux).
+This assumes that you are using `anaconda` and `python` 3.7+.
 
-1. Edit the `environment.yml` file:
-  - Uncomment the `name` attribute.
-  - After `name`, enter the name you want for your environment. Good practice is to use the same name for the environment as for the repo.
-  - Edit the dependencies list as required.
-2. Create your environment:
+1. Clone the repository locally with `git clone git@github.com:chrisroadmap/hfc-policy-outcomes.git`. If you don't have `git` available and don't plan to do any development, downloading a tarball of the repository should also work.
+
+2. Create the conda environment:
 
 ```
 conda env create -f environment.yml
 ```
-3. If you want to make nice version-control friendly notebooks, which will remove all output and data upon committing, run
+
+Optionally, you can override the default environment name (`hfc-policy-outcomes`) by passing a `-n your-env-name` flag if you want to call it something different.
+
+3. Activate the environment with `conda activate hfc-policy-outcomes`.
+
+4. FOR DEVELOPERS: If you plan to develop the notebooks with a view to merge into the main fork (`chrisroadmap/hfc-policy-outcomes`), I will require version-control friendly notebooks, which will remove all output and data upon committing. To do this, run
 ```
 nbstripout --install
 ```
 
-4. Examine .gitignore and decide where you want to put any large input or output datasets that you don't want to commit to GitHub, and fill in these paths.
+If you don't plan to make changes and just want to reproduce (or won't be pushing your changes to GitHub) this step isn't required.
 
-## Operation 
+If you need to add more dependencies to the `conda` environment, edit the `environment.yml` file and run `conda env update -f environment.yml --prune`.
 
-### Developing your package
+5. Run the `notebooks` in numerical order.
 
-Most of the time your workflow will look like this
+## Questions
 
-```
-conda activate your-env-name
-jupyter notebook
-```
-
-### Updating requirements
-
-As you build the package you will likely want to add more dependencies. Edit the `environment.yml` file and run
-```
-conda env update -f environment.yml --prune
-```
-
-Please do not overwrite the `environment.yml` file using `conda env export`, as this exports everything in your local environment including all sub-dependencies and OS-specific packages (and sometimes local paths).
+Please raise an issue if you run into difficulties.
