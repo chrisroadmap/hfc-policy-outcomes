@@ -10,6 +10,7 @@ dependencies:
   - fair
   - matplotlib
   - numpy
+  - openpyxl
   - pandas
   - scipy
   - tqdm
